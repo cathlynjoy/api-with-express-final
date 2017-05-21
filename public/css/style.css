@@ -1,0 +1,254 @@
+
+
+.tabsdemoDynamicHeight md-content {
+  background-color: transparent !important; }
+  .tabsdemoDynamicHeight md-content md-tabs {
+    background: #F3F2ED;
+    border: 1px solid #F3F2ED; }
+    .tabsdemoDynamicHeight md-content md-tabs md-tabs-wrapper {
+      background: #F3F2ED; }
+  .tabsdemoDynamicHeight md-content h1:first-child {
+    margin-top: 0; }
+
+[md-header-picture] {
+    position: relative;
+    width:100%;
+    height:400px;/* Simple trick to keep a 16:9 ratio on your background image (height=0;padding-bottom=56.25%) */
+    overflow:hidden;
+    background-size:100% 100%; /* You can override this value if your picture has a weird ratio */
+    background-repeat: no-repeat;
+}
+
+.cardHeader{
+  background-color: #F3F2ED;
+  height: 50px;
+}
+
+.md-no-sticky{
+  background-color: #F3F2ED;
+}
+
+md-card{
+  background-color: #F3F2ED;
+}
+
+.input{
+  margin-top: 330px;
+}
+
+md-input-container{
+  width: 50%;
+}
+
+md-input-container label {
+  color: #707070;
+}
+
+md-list-item{
+  border-bottom: 1pt solid LightGray;
+}
+
+.md-list-item-text{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 11pt;
+
+}
+
+.movie-poster {
+  float: left;
+  width: 150px;
+  margin-right: 10px;
+  -moz-animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+}
+
+a:link{
+  color: black;
+}
+
+a:visited{
+  color: black;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+a:active{
+  color: black;
+}
+
+.col-md-8{
+  width: 55%;
+  max-width: 1000px;
+  float: left;
+  padding-left: 20px;
+  padding-right: 50px;
+  padding-top: 10px;
+  text-align: justify;
+}
+
+.col-md-4{
+  background-color: #F0F0F0;
+  width: 30%;
+  float: left;
+  margin-left: 40px;
+  margin-top: 50px;
+  padding: 10px;
+}
+
+.infoLabel{
+  background-color: #0099FF;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 5px;
+  cursor: default;
+  border-radius: 2px;
+  margin-top: 4px;
+}
+
+.rating{
+  backgroung-color: LightGray;
+  width: 50%;
+  float: left;
+}
+
+.rate{
+  background-color: #00CC99;
+  border: none;
+  color: white;
+  font-size: 8pt;
+  text-align: center;
+  text-decoration: none;
+  padding: 5px;
+  cursor: default;
+  border-radius: 2px;
+  margin-top: 4px;
+  margin-left: 4px;
+}
+
+.sale{
+  background-color: #FF9966;
+  border: none;
+  color: white;
+  font-size: 8pt;
+  text-align: center;
+  text-decoration: none;
+  padding: 5px;
+  cursor: default;
+  border-radius: 2px;
+  margin-top: 4px;
+  margin-left: 4px;
+}
+
+.buy{
+  width: auto;
+  float: left;
+}
+
+.buyBtn{
+  background-color: #33CCFF;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 2px;
+  margin-top: 4px;
+  float: left;
+}
+
+.hello {
+  text-align:center;
+  font-weight:bold;
+  font-size:50px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.userCard1, .userCard2, .userCard3, .userCard4 {
+  width:430px;
+  height:110px;
+  background-color:#ECEFF1;
+  overflow:hidden;
+  float:left;
+}
+
+.userCard1:hover {
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition:0.1s;
+  mouse:pointer;
+  transform: scale(1.1);
+}
+
+.userCard2:hover {
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition:0.1s;
+  mouse:pointer;
+  transform: scale(1.1);
+}
+
+.userCard3:hover {
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition:0.1s;
+  mouse:pointer;
+  transform: scale(1.1);
+}
+
+.userCard4:hover {
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition:0.1s;
+  mouse:pointer;
+  transform: scale(1.1);
+}
+
+.userLogo {
+  width:70px;
+  height:70px;
+  float:left;
+  padding:5px;
+  margin-top:15px;
+  margin-left:20px;
+
+}
+
+.name {
+  font-size:20px;
+  margin-left:50px;
+  margin-top:30px;
+}
+
+.names {
+  font-size:15px;
+  margin-left:10px;
+}
+
+.user1, .user3 {
+  width:430px;
+  height:135px;
+  float:left;
+  margin-left:130px;
+}
+
+.user2, .user4 {
+  width:430px;
+  height:135px;
+  float:right;
+  margin-right:130px;
+}
+
+.add {
+  margin-left:30px;
+  float:left;
+  margin-top:5px;
+}
+
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.
+*/

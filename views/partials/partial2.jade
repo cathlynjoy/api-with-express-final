@@ -1,0 +1,103 @@
+
+doctype html
+html(lang='en')
+  head
+    title Google Book library
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    
+    
+  body
+    div
+      //- .container-fluid.outerdiv
+        center
+  
+      
+.container-fluid.outerdiv
+  .animated.zoomInRight
+    .input-group.search-bar
+      input.form-control(type='text', ng-model='search', ng-model-options='{ debounce: 800 }', onclick='select()', placeholder='Enter book title', autofocus='')
+      span.input-group-addon.bar-style
+        i.glyphicon.glyphicon-search
+      div(layout='row', layout-align='space-between center')
+        span Sort by:
+        select.md-no-underline(ng-model='order', placeholder='Price')
+          option(value='saleInfo.listPrice.amount') low to high
+          option(value='-saleInfo.listPrice.amount') high to low
+        select.md-no-underline(ng-model='filter', placeholder='Ebooks')
+          option(value='full') All books
+          option(value='free-ebooks') Free books
+          option(value='paid-ebooks') Paid books
+    #main-info.col-sm-8
+      img.thumbnail.animated.flip.movie-poster(ng-src='{{bookInfo.imageLinks.smallThumbnail}}')
+      span.span-outer
+        a(href='https://books.google.com/{{ bookInfo.previewLink }}', target='_blank') {{bookInfo.title}}
+      | , {{bookInfo.Year}}
+      p
+        strong Publisher:
+        |  {{bookInfo.publisher}}
+        br
+        strong Published Date:
+        |  {{bookInfo.publishedDate}}
+      p {{bookInfo.description}}
+      p.outer-p
+        .inner-p
+          span.label.label-primary Authors :
+          span(ng-repeat='author in bookInfo.authors') {{author}},
+        .inner-p
+          span.label.label-primary Categories :
+          span(ng-repeat='categories in bookInfo.categories')
+            | {{categories}}
+      .col-md-4.outer-p-2
+        | Ratings:
+        br
+        strong Average Rating
+        | :
+        span.label.label-success {{bookInfo.averageRating}}
+        br
+        strong Ratings Count
+        | :
+        span.label.label-success {{bookInfo.ratingsCount}}
+        br
+        strong Maturity Rating
+        | :
+        span.label.label-success {{bookInfo.maturityRating.split('_').join(' ')}}
+        p
+      .col-md-8.outer-p-2
+        | Sale Info:
+        br
+        strong Country
+        | :
+        span.label.label-success {{saleInfo.country}}
+        br
+        strong Sale Ability
+        | :
+        span.label.label-success {{ saleInfo.saleability.split('_').join(' ')}}
+        br
+        strong List Price
+        | :
+        span.label.label-success {{ saleInfo.listPrice.amount | currency}}
+        br
+        strong Retail Price
+        | :
+        span.label.label-success {{ saleInfo.retailPrice.amount | currency}}
+        p
+  #related-results.col-sm-4.col-xs-4.animated.bounce.related-results
+    div
+      md-card-content
+        | Related Results:
+        hr
+        ul.rel-results
+          li(data-ng-repeat='book in relatedBooks | orderBy: order')
+            a(href='#', id='{{ $index + 1 }}', ng-click='update(book)')
+              // <img ng-src="{{book.volumeInfo.imageLinks.smallThumbnail}}" class="thumbnail animated flip movie-poster">
+              | {{book.volumeInfo.title}}
+            | ,
+            |                {{book.saleInfo.listPrice.amount | currency}}
+br
+.bottomLine.animated.zoomInRight
+div(ng-app='dev', align='center')
+  br
+  |           Copyright &copy 2017
+  span.divider
+  a(href='https://books.google.com/', target='_blank')
+    | Googlebook.com
