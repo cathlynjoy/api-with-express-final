@@ -7,7 +7,7 @@ app.controller('MyCtrl2', function ($scope,$http) {
       fetch();
       });
 
-      $scope.search = "harry potter";
+      $scope.search = "";
       $scope.filter = "full";
 
       function fetch() {

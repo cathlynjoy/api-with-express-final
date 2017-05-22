@@ -13,20 +13,14 @@ html(lang='en')
   
       
 .container-fluid.outerdiv
-  .animated.zoomInRight
-    .input-group.search-bar
-      input.form-control(type='text', ng-model='search', ng-model-options='{ debounce: 800 }', onclick='select()', placeholder='Enter book title', autofocus='')
-      span.input-group-addon.bar-style
-        i.glyphicon.glyphicon-search
-      div(layout='row', layout-align='space-between center')
-        span Sort by:
-        select.md-no-underline(ng-model='order', placeholder='Price')
-          option(value='saleInfo.listPrice.amount') low to high
-          option(value='-saleInfo.listPrice.amount') high to low
-        select.md-no-underline(ng-model='filter', placeholder='Ebooks')
-          option(value='full') All books
-          option(value='free-ebooks') Free books
-          option(value='paid-ebooks') Paid books
+  .input-group.search-bar
+    input.form-control(type='text', ng-model='search', ng-model-options='{ debounce: 800 }', onclick='select()', placeholder='Enter book title', autofocus='')
+    span.input-group-addon.bar-style
+      i.glyphicon.glyphicon-search
+  div.nosearch(ng-show="search == false")
+    center
+      span Nothing to search ...
+  div.animated.zoomInRight(ng-if='bookInfo', ng-hide='search == false')
     #main-info.col-sm-8
       img.thumbnail.animated.flip.movie-poster(ng-src='{{bookInfo.imageLinks.smallThumbnail}}')
       span.span-outer
@@ -38,52 +32,62 @@ html(lang='en')
         br
         strong Published Date:
         |  {{bookInfo.publishedDate}}
-      p {{bookInfo.description}}
+      p.desc {{bookInfo.description}}
       p.outer-p
         .inner-p
           span.label.label-primary Authors :
-          span(ng-repeat='author in bookInfo.authors') {{author}},
+          span(ng-repeat='author in bookInfo.authors') &nbsp{{author}},
         .inner-p
           span.label.label-primary Categories :
           span(ng-repeat='categories in bookInfo.categories')
-            | {{categories}}
+            | &nbsp{{categories}}
       .col-md-4.outer-p-2
-        | Ratings:
         br
         strong Average Rating
-        | :
+        | :&nbsp
         span.label.label-success {{bookInfo.averageRating}}
         br
         strong Ratings Count
-        | :
+        | :&nbsp
         span.label.label-success {{bookInfo.ratingsCount}}
         br
         strong Maturity Rating
-        | :
+        | :&nbsp
         span.label.label-success {{bookInfo.maturityRating.split('_').join(' ')}}
         p
       .col-md-8.outer-p-2
-        | Sale Info:
         br
         strong Country
-        | :
+        | :&nbsp
         span.label.label-success {{saleInfo.country}}
         br
         strong Sale Ability
-        | :
+        | :&nbsp
         span.label.label-success {{ saleInfo.saleability.split('_').join(' ')}}
         br
         strong List Price
-        | :
+        | :&nbsp
         span.label.label-success {{ saleInfo.listPrice.amount | currency}}
         br
         strong Retail Price
-        | :
+        | :&nbsp
         span.label.label-success {{ saleInfo.retailPrice.amount | currency}}
         p
-  #related-results.col-sm-4.col-xs-4.animated.bounce.related-results
-    div
+  div#related-results.col-sm-4.col-xs-4.animated.bounce.related-results(ng-if='bookInfo', ng-hide='search == false')
+    div 
+      div(layout='row', layout-align='space-between center')
+        span Sort by: &nbsp
+        select.md-no-underline(ng-model='filter', placeholder='Ebooks')
+          option(value='full') All books
+          option(value='free-ebooks') Free books
+          option(value='paid-ebooks') Paid books
+        | &nbsp
+        select.md-no-underline(ng-model='order', placeholder='Price')
+          option(value='saleInfo.listPrice.amount') low to high
+          option(value='-saleInfo.listPrice.amount') high to low
+        
       md-card-content
+        br
         | Related Results:
         hr
         ul.rel-results
