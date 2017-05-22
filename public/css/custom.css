@@ -15,6 +15,14 @@ ul.rel-results {
   list-style-type: circle;
 }
 
+.nosearch {
+  font-size: 13pt;
+  color: gray;
+  height: 400px;
+  width: 100%;
+  padding-top: 200px;
+}
+
 .nojs {
   padding: 2px;
   padding-left: 6px;
@@ -56,6 +64,10 @@ ul.rel-results {
   margin-right: 10px;
   -moz-animation-delay: 1s;
   -webkit-animation-delay: 1s;
+}
+
+.desc {
+  text-align: justify;
 }
 
 .span-outer {
